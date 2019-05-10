@@ -26,6 +26,8 @@
     "label": "Phone",
     "name": "phone",
     "type": "number",
+    "accept": "(?=*[0-9]).{10,}",
+    "message": "Phone number should be 10 digits",
     "inputType": "number"
   },
   {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { registerDetails, registerForm } from '../redux/actions/updateAction';
+import Background from '../../assets/img2.jpg';
 
 
 
@@ -35,82 +36,73 @@ export class register extends Component {
     render() {
         console.log('registered state==', this.state.registered)
         return (
-            <div>
+            <div style={{
+                background: `url(${Background})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '750px'
+            }}>
                 <form onSubmit={this.register}>
-                    <h2>Register Here</h2>
-                    <table style={{ marginLeft: "350px", textAlign: "center" }}>
+                    <h2 style={{ color: '#17202A' }}>Register Here</h2>
+                    <table align="center" style={{ border: "1px solid", background: "#F7DC6F", boxShadow: "5px 10px #566573", padding: "20px 0px" }}>
                         <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>First Name</label>
-                            </td>
-                            <td>
-                                <input type="text" name="firstname"
-                                    onChange={e => this.setState({
-                                        registered:
-                                        {
-                                            ...this.state.registered,
-                                            firstname: e.target.value
-                                        }
-                                    })} />
-                            </td>
+
+                            <input type="text" name="firstname" placeholder="First Name"
+                                onChange={e => this.setState({
+                                    registered:
+                                    {
+                                        ...this.state.registered,
+                                        firstname: e.target.value
+                                    }
+                                })} />
                         </tr>
                         <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>Last Name</label>
-                            </td>
-                            <td>
-                                <input type="text" name="lastname"
-                                    onChange={e => this.setState({
-                                        registered:
-                                        {
-                                            ...this.state.registered,
-                                            lastname: e.target.value
-                                        }
-                                    })} />
-                            </td>
+
+
+                            <input type="text" name="lastname" placeholder="Last Name"
+                                onChange={e => this.setState({
+                                    registered:
+                                    {
+                                        ...this.state.registered,
+                                        lastname: e.target.value
+                                    }
+                                })} />
+
                         </tr>
                         <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>Email</label>
-                            </td>
-                            <td>
-                                <input type="email" name="email"
-                                    onChange={e => this.setState({
-                                        registered:
-                                        {
-                                            ...this.state.registered,
-                                            email: e.target.value
-                                        }
-                                    })} />
-                            </td>
+                            <input type="email" name="email" placeholder="Email"
+                                onChange={e => this.setState({
+                                    registered:
+                                    {
+                                        ...this.state.registered,
+                                        email: e.target.value
+                                    }
+                                })} />
+
                         </tr>
                         <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>Password</label>
-                            </td>
-                            <td>
-                                <input type="password" name="password"
-                                    onChange={e => this.setState({
-                                        registered:
-                                        {
-                                            ...this.state.registered,
-                                            password: e.target.value
-                                        }
-                                    })}
-                                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                />
-                            </td>
+
+                            <input type="password" name="password" placeholder="Password"
+                                onChange={e => this.setState({
+                                    registered:
+                                    {
+                                        ...this.state.registered,
+                                        password: e.target.value
+                                    }
+                                })}
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                            />
+
                         </tr>
                         <tr style={{ width: "20px" }}>
 
                         </tr>
-                        <td>
-                        </td>
-                        <td>
+                        
                             <input type='submit' value='Register' name='register'
                                 style={{ width: "250px", textAlign: "center", marginLeft: "10px" }} />
-                        </td>
+                        
                     </table>
                 </form>
             </div>

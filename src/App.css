@@ -1,3 +1,7 @@
+body {
+  background-color: #61dafb,
+}
+
 .App {
   text-align: center;
 }
@@ -31,3 +35,7 @@
     transform: rotate(360deg);
   }
 }
+* {
+  background-image: "../assets/D145_276_031_1200.jpg";
+}
+

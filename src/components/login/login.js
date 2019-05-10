@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link, history } from "react-router-dom";
+import Background from '../../assets/adult-agent-approval-684385.jpg'
 
 
 export class login extends Component {
@@ -27,10 +28,10 @@ export class login extends Component {
             window.alert('invalid email or password')
             return this.props.history.push('/')
         }
-        else if(this.state.email !== filtered[0].email) {
+        else if (this.state.email !== filtered[0].email) {
             alert('invalid email id')
         }
-        else if(this.state.password !== filtered[0].password) {
+        else if (this.state.password !== filtered[0].password) {
             alert('invalid password')
         }
         else if (this.state.email === filtered[0].email && this.state.password === filtered[0].password) {
@@ -43,56 +44,47 @@ export class login extends Component {
     render() {
         console.log('changed state', this.state)
         return (
-            <div className="container">
-                <form onSubmit={this.login}>
-                    <h2>Login Here</h2>
-                    <table style={{ marginLeft: "350px", textAlign: "center" }} >
-                        <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>Email</label>
-                            </td>
-                            <td>
-                                <input type="text" name="email"
-                                    onChange={e => this.setState({ [e.target.name]: e.target.value })} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style={{ width: "300px", textAlign: "right" }}>
-                                <label>Password</label>
-                            </td>
-                            <td>
-                                <input type="text" name="password"
+            <div style={{
+                background: `url(${Background})`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat',
+                height: '750px',
+            }}>
+                <div className="container" style={{ textAlign: "center" }}>
+                    <form onSubmit={this.login}>
+                        <h2 style={{ color: '#17202A' }}>Login Here</h2>
+
+                        <table align="center" style={{ border: "1px solid", background: "#F7DC6F", boxShadow: "5px 10px #566573", padding: "20px 0px" }}>
+
+                            {/* <td style={{ width: "50px", textAlign: "right" }}>
+                    <label>Email</label>
+                </td> */}
+
+                            <input type="text" name="email" placeholder="Email"
+                                onChange={e => this.setState({ [e.target.name]: e.target.value })} />
+                            <tr>
+                                <input type="text" name="password" placeholder="Password"
                                     onChange={e => this.setState({ [e.target.name]: e.target.value })}
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-                                 title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
-                                    />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                            </td>
-                            <td>
+                                    title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
+                                />
+                            </tr>
+                            <tr>
                                 <input type='submit' value='Login' name='Login'
-
                                     style={{ width: "250px", textAlign: "center", marginLeft: "10px" }} />
-                            </td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>
+                            </tr>
+                            <tr>
                                 Dont have account?
                         <Link type="button" to='/register'>Register</Link>
-                            </td>
-
-                        </tr>
-
-                    </table>
-                </form>
+                            </tr>
+                        </table>
+                    </form>
+                </div >
             </div>
         )
     }
 }
-
 const mapStateToProps = (reduxState) => {
     console.log('redux data is-------', reduxState)
     return { data: reduxState }

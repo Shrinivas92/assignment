@@ -53,7 +53,8 @@ class Personal extends Component {
             <label>{data.label}</label>
           </td>
           <td>
-            <input type={data.inputType} value={data.value} name={data.name} accept={data.accept} multiple={data.multiple}></input>
+            <input type={data.inputType} value={data.value} name={data.name} accept={data.accept} multiple={data.multiple} 
+            message={data.message}/>
           </td>
         </table>
       </div>)

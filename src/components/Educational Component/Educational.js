@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import educationData from '../eduData.json';
 import { educationalDetails, educationalForm } from '../redux/actions/updateAction';
 import Home from '../Home Component/Home';
-
+import Background from '../../assets/img2.jpg';
 
 class Educational extends Component {
 
@@ -48,11 +48,11 @@ class Educational extends Component {
     const renderedData = this.props.data.educationalForm.map((data, index) => {
       console.log('rendered data', data)
       console.log('index is', index)
-      return<div>
-         <h1>
-        
-        {data}
-      </h1>
+      return <div>
+        <h1>
+
+          {data}
+        </h1>
       </div>
     })
 
@@ -117,16 +117,27 @@ class Educational extends Component {
           </div>
         </div>)
       }
-    }
-    )
+    })
 
     return (
-      <div>
+      <div >
         <Home />
-        <form onSubmit={this.enteredValue} name="educationForm">
-          <h6>Education Details</h6>
-          {Education}
-        </form>
+        <div style={{
+          background: `url(${Background})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          height: '750px'
+        }}>
+
+          <form onSubmit={this.enteredValue} name="educationForm">
+            <div >
+              <h6>Education Details</h6>
+              {Education}
+            </div>
+          </form>
+
+        </div>
         <div>
           {renderedData}
         </div>
