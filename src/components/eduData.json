@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "label": "Full Name",
+        "type": "input",
+        "inputType": "text",
+        "name": "fname",
+        "required": true
+    },
+    {
+        "id": 2,
+        "label" : "Institue Name",
+        "type": "input",
+        "inputType": "text",
+        "name": "Institute_name"       
+    },
+    {
+        "id": 3,
+        "label": "Location",
+        "type": "input",
+        "inputType": "text",
+        "name": "location",
+        "location": "location"
+        
+    },
+    {
+        "id": 4,
+        "label": "Contact",
+        "type": "input",
+        "inputType": "number",
+        "name" : "contact",
+       
+        "max": 10
+      },     
+      {
+          "id": 4,
+          "label": "Rank",
+          "inputType":"select",
+          "type": "select",         
+          "name": "rank",
+          "option1": 1,
+          "option2": 2,
+          "option3": 3
+    },
+    {
+        "id": 5,
+        "label": "Upload Report",
+        "name": "upload",
+        "type": "input",
+        "inputType": "file",
+        "multiple": "multiple",
+        "accept": ".pdf"
+
+      },
+    {
+        "id": 6,
+        "value": "Submit",         
+         "type": "submit",
+        "inputType": "submit",
+        "name": "submit"
+    }
+]

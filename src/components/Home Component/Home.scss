@@ -1,0 +1,28 @@
+
+.navbar {
+    background: blue;
+    color: white;
+    height: 40px;
+
+    ul {
+        padding-top: 12px;
+        margin: 0;
+        text-align: center;
+    }
+
+    li {
+        list-style-type: none;
+        display: inline;
+        padding: 0 15px;
+
+        a {
+            color: white;
+            text-decoration: none;
+        }
+
+        &.active {
+            padding-bottom: 3px;
+            border-bottom: 5px solid white;
+        }
+    }
+}

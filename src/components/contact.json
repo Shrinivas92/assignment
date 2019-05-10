@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "label": "Email",
+        "inputType": "email",
+        "name": "email",
+       "type": "input"
+    },
+    {
+        "id": 3,
+        "label": "Name",
+        "name": "name",
+        "inputType": "text",
+        "type": "input"
+    },
+     {
+        "id": 2,
+        "label" : "Comments",  
+        "name": "comments",     
+        "inputType": "textarea",
+        "type": "textarea",
+        "rows": "4",
+        "coloumns": "100"
+    },
+    {
+        "id": 4,
+        "value": "Submit",         
+         "type": "submit",
+        "inputType": "submit",
+        "name": "submit"
+
+    }
+]

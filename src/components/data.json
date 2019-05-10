@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "label": "First Name",
+    "name": "First_name",
+    "type": "text",
+    "inputType": "text",
+    "required": true
+  },
+  {
+    "id": 2,
+    "label": " Last Name",
+    "name": "last_name",
+    "type": "text",
+    "inputType": "text"
+  },
+  {
+    "id": 3,
+    "label": "Email",
+    "name": "email",
+    "type": "email",
+    "inputType": "email"
+  },
+  {
+    "id": 4,
+    "label": "Phone",
+    "name": "phone",
+    "type": "number",
+    "inputType": "number"
+  },
+  {
+    "id": 5,
+    "label": "Upload Photo",
+    "name": "upload",
+    "type": "file",
+    "inputType": "file",
+    "multiple": "multiple",
+    "accept": "image/png, .jpeg, .jpg"
+  },
+  {
+    "id": 6,
+    "value": "Submit",
+    "type": "submit",
+    "inputType": "submit",
+    "name": "submit"
+  }
+]
