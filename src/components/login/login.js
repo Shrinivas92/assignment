@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link, history } from "react-router-dom";
 import Background from '../../assets/adult-agent-approval-684385.jpg'
-import axios from 'axios';
+
+import { baseUrl } from '../utils/utils.js';
 
 
 export class login extends Component {
@@ -15,8 +16,13 @@ export class login extends Component {
         }
     }
     componentWillMount() {
-        axios.get('https://5cd93f150b00400014720149.mockapi.io/users')
-            .then(resp => {
+        fetch(`${baseUrl}/users`, {
+            method: 'GET',
+            header: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }) .then(resp => {
                 const data = resp.data;
                 data.forEach(e => {
                     console.log(`${e.firstname}, ${e.lastname}, ${e.email}, ${e.password}`);
@@ -76,7 +82,7 @@ export class login extends Component {
                             <input type="text" name="email" placeholder="Email"
                                 onChange={e => this.setState({ [e.target.name]: e.target.value })} />
                             <tr>
-                                <input type="text" name="password" placeholder="Password"
+                                <input type="password" name="password" placeholder="Password"
                                     onChange={e => this.setState({ [e.target.name]: e.target.value })}
                                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                     title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
@@ -101,6 +107,5 @@ const mapStateToProps = (reduxState) => {
     console.log('redux data is-------', reduxState)
     return { data: reduxState }
 }
-
 
 export default connect(mapStateToProps)(login)
