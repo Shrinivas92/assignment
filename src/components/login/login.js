@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link, history } from "react-router-dom";
 import Background from '../../assets/adult-agent-approval-684385.jpg'
+import axios from 'axios';
 
 
 export class login extends Component {
@@ -13,7 +14,18 @@ export class login extends Component {
             password: ''
         }
     }
-
+    componentWillMount() {
+        axios.get('https://5cd93f150b00400014720149.mockapi.io/users')
+            .then(resp => {
+                const data = resp.data;
+                data.forEach(e => {
+                    console.log(`${e.firstname}, ${e.lastname}, ${e.email}, ${e.password}`);
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
     login = (e) => {
         e.preventDefault();
         console.log('props data=========', this.props);

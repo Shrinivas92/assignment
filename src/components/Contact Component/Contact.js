@@ -4,6 +4,7 @@ import '../Contact Component/Contact.css';
 import { connect } from 'react-redux';
 import { contactDetails, contactForm } from '../redux/actions/updateAction';
 import Home from '../Home Component/Home';
+import { baseUrl } from '../utils/utils.js';
 
 class Contact extends Component {
 
@@ -21,13 +22,20 @@ class Contact extends Component {
     e.preventDefault();
     console.log("submit event", e);
     console.log('data', this.props.data)
-    this.props.data.contactData.map(contact => {
-      if (contact.name !== "submit") {
-        this.props.contactForm(this.state)
-        // this.state.res.push(e.target[contact.name].value)
-      }
-
-    })
+    fetch(`${baseUrl}/contact`, {
+      method: 'POST',
+      headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          email: this.state.email,
+          name: this.state.name,
+          comments: this.state.comments
+      })
+  }).then(res => res.json())
+      .then(data => console.log(data))
+      .catch(err => console.log(err));
   }
 
   render() {
@@ -97,7 +105,7 @@ class Contact extends Component {
           <h6>Contact Details</h6>
           {ContactDetails}
         </form>
-        <div >
+        {/* <div >
           <table><tr>
             <th style={{ paddingRight: "50px" }}>ID</th>
             <th style={{ paddingRight: "50px" }}>Name</th>
@@ -105,7 +113,7 @@ class Contact extends Component {
           </tr></table>
           {output}
 
-        </div>
+        </div> */}
       </div>
     )
 

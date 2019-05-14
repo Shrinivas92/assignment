@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { registerDetails, registerForm } from '../redux/actions/updateAction';
 import Background from '../../assets/img2.jpg';
+import { baseUrl } from '../utils/utils';
 
 
 
@@ -29,8 +30,23 @@ export class register extends Component {
 
         console.log('event log', e.target[register.name].value)
         console.log('response', this.state.res)
-        this.props.history.push('/educational')
-        //this.props.contactForm(this.state.res)
+
+        fetch(`${baseUrl}/users`, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                firstname: this.state.registered.firstname,
+                lastname: this.state.registered.lastname,
+                email: this.state.registered.email,
+                password: this.state.registered.password
+            })
+        }).then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
+            this.props.history.push('/educational')
     }
 
     render() {
@@ -99,10 +115,10 @@ export class register extends Component {
                         <tr style={{ width: "20px" }}>
 
                         </tr>
-                        
-                            <input type='submit' value='Register' name='register'
-                                style={{ width: "250px", textAlign: "center", marginLeft: "10px" }} />
-                        
+
+                        <input type='submit' value='Register' name='register'
+                            style={{ width: "250px", textAlign: "center", marginLeft: "10px" }} />
+
                     </table>
                 </form>
             </div>

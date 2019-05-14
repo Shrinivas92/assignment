@@ -2,7 +2,7 @@
   {
     "id": 1,
     "label": "First Name",
-    "name": "First_name",
+    "name": "firstname",
     "type": "text",
     "inputType": "text",
     "required": true
@@ -10,7 +10,7 @@
   {
     "id": 2,
     "label": " Last Name",
-    "name": "last_name",
+    "name": "lastname",
     "type": "text",
     "inputType": "text"
   },

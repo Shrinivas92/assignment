@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import educationData from '../eduData.json';
 import { educationalDetails, educationalForm } from '../redux/actions/updateAction';
 import Home from '../Home Component/Home';
-import Background from '../../assets/img2.jpg';
+import { baseUrl } from '../utils/utils.js';
+// import Background from '../../assets/img2.jpg';
 
 class Educational extends Component {
 
@@ -27,13 +28,31 @@ class Educational extends Component {
     e.preventDefault();
 
     console.log("submit event", e);
-    this.props.data.educationalData.map(eduData => {
-      if (eduData.name !== "submit") {
-        this.state.res.push(e.target[eduData.name].value)
-      }
-      console.log('event log', e.target[eduData.name].value)
+    console.log("response data======",this.state)
+    
+        fetch(`${baseUrl}/education`, {
+          method: 'POST',
+          headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+              fullname: this.state.fname,
+              institutename: this.state.Institute_name,
+              location: this.state.location,
+              contact: this.state.contact,
+              image: this.state.rank,
+              report: this.state.upload
+          })
+      }).then(res => res.json())
+          .then(data => console.log(data))
+          .catch(err => console.log(err));
+    
+        // this.state.res.push(e.target[eduData.name].value)
+      
+      // console.log('event log', e.target[eduData.name].value)
       console.log('response', this.state.res)
-    })
+    
     this.props.educationalForm(this.state.res)
     var frm = document.getElementsByName('educationForm')[0];
     frm.reset();
@@ -64,7 +83,7 @@ class Educational extends Component {
           <div >
             <table style={{ marginLeft: "350px" }}>
               <td style={{ width: "300px", textAlign: "right" }}>
-                <label>{education.label} :</label>
+                <label style={{color: "#512E5F"}}>{education.label} :</label>
               </td>
               <td>
                 <input type={education.inputType} value={education.value} name={education.name} multiple={education.multiple} accept={education.accept} onChange={this.validate} />
@@ -122,13 +141,15 @@ class Educational extends Component {
     return (
       <div >
         <Home />
-        <div style={{
+        <div>
+           {/* style={{
           background: `url(${Background})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundRepeat: 'no-repeat',
+          opacity: "0.7",
           height: '750px'
-        }}>
+        }}> */}
 
           <form onSubmit={this.enteredValue} name="educationForm">
             <div >
@@ -136,7 +157,6 @@ class Educational extends Component {
               {Education}
             </div>
           </form>
-
         </div>
         <div>
           {renderedData}
