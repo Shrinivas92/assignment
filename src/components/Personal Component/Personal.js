@@ -78,7 +78,7 @@ class Personal extends Component {
       <div>
         <table style={{ marginLeft: "350px" }}>
           <td style={{ width: "300px", textAlign: "right" }}>
-            <label>{data.label}</label>
+            <label style={{color: "#512E5F"}}>{data.label}</label>
           </td>
           <td>
             <input type={data.inputType} value={data.value} name={data.name} accept={data.accept} multiple={data.multiple} 

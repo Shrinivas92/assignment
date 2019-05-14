@@ -68,6 +68,7 @@ export class login extends Component {
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
                 height: '750px',
+                opacity: '0.7'
             }}>
                 <div className="container" style={{ textAlign: "center" }}>
                     <form onSubmit={this.login}>

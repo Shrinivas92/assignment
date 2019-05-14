@@ -62,7 +62,7 @@ class Contact extends Component {
         return <div>
           <table style={{ marginLeft: "400px", textAlign: "right" }}>
             <td style={{ width: "300px", textAlign: "right" }}>
-              <label>{data.label}</label>
+              <label style={{color: "#512E5F"}}>{data.label}</label>
             </td>
             <td style={{ width: "300px" }}>
               <input type={data.inputType} value={data.value} name={data.name}
@@ -75,7 +75,7 @@ class Contact extends Component {
         return <div style={{ textAlign: "center" }}>
           <table style={{ marginLeft: "600px" }}>
             <tr style={{ width: "20px" }}>
-              <label>{data.label}</label>
+              <label style={{color: "#512E5F"}}>{data.label}</label>
               <input type={data.inputType} value={data.value} name={data.name}
                 onChange={e => this.setState({ [e.target.name]: e.target.value })}
                 style={{ width: "250px", textAlign: "center" }} />
@@ -87,7 +87,7 @@ class Contact extends Component {
         return <div>
           <table style={{ marginLeft: "600px", width: "20px" }}>
             <td style={{ width: "300px" }}>
-              <label>{data.label}</label>
+              <label style={{color: "#512E5F"}}>{data.label}</label>
               <textarea type={data.inputType} rows={data.rows} coloumns={data.coloumns} value={data.value} name={data.name}
                 onChange={e => this.setState({ [e.target.name]: e.target.value })}
                 style={{ width: "200px" }}> </textarea>

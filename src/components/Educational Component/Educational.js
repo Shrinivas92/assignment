@@ -101,11 +101,11 @@ class Educational extends Component {
           <div class="input-field col s12 m6">
             <table style={{ marginLeft: "350px" }}>
               <td style={{ width: "300px", textAlign: "right" }}>
-                <label>Images in select</label>
+                <label style={{color: "#512E5F"}}>{education.label}</label>
               </td>
               <td style={{ width: "300px" }}>
                 <select type={education.inputType} value={education.value} name={education.name} style={{ width: "260px", height: "30px" }}>
-                  <option value="1">{education.label}</option>
+                  
                   <option value="1">{education.option1}</option>
                   <option value="1">{education.option2}</option>
                   <option value="1">{education.option3}</option>

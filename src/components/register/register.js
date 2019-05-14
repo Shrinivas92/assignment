@@ -57,7 +57,8 @@ export class register extends Component {
                 backgroundPosition: 'center',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                height: '750px'
+                height: '750px',
+                opacity:'0.7'
             }}>
                 <form onSubmit={this.register}>
                     <h2 style={{ color: '#17202A' }}>Register Here</h2>
